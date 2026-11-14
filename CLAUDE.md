@@ -18,7 +18,7 @@ It reuses the "Don't Piss Me Off!" (DPMO!) brand identity. Site language: Englis
 
 Static site: serve the folder (`npx serve .`).
 
-The repo is public (https://github.com/El3k0n/dontpissmeoff) and linked from the site footer as a
+The repo is public (https://github.com/El3k0n/donotpissmeoff) and linked from the site footer as a
 showcase of how Diego builds. Keep it that way:
 
 - No inline `style` attributes, no inline scripts or styles. The server sends a strict
