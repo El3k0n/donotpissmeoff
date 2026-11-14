@@ -60,7 +60,7 @@ Server details, access and operational notes are in `CLAUDE.local.md` (not in th
 ## Brand
 
 - Colors: Piss Pink `#ef709d`, Acid Lime `#ebfd51`, Dirty Black `#000000`, Off White `#ffffff`. Nothing else.
-- Type: Anton (headlines, uppercase, tight line-height) + Work Sans (body). Loaded from Google Fonts.
+- Type: Anton (headlines, uppercase, tight line-height) + Work Sans (body). Self-hosted in `assets/fonts`.
 - Look: punk, raw, deliberately imperfect. 3px black borders, hard offset shadows
   (no blur), slight rotations, flat colour blocks. No gradients, no rounded cards, no emoji.
 - Mascot: Mo, a pigeon. Urban, shameless, permanently annoyed. Not cute, not trying to be liked.
