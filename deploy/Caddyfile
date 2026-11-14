@@ -1,0 +1,90 @@
+# DPMO! — Caddy config. Installed on the server as /etc/caddy/Caddyfile.
+#
+# https://donotpissmeoff.com is the canonical address. Caddy gets and renews the
+# Let's Encrypt certificates on its own. www and the bare IP redirect to it.
+
+(security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+		# Everything is served from this origin: no inline scripts or styles, no third parties.
+		# (data: is for the one SVG arrow embedded in style.css.)
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+		-Server
+	}
+}
+
+(site) {
+	root * /var/www/dpmo
+	encode zstd gzip
+	import security_headers
+
+	# Contact form -> local relay (deploy/contact)
+	handle /api/contact {
+		request_body {
+			max_size 32KB
+		}
+		reverse_proxy 127.0.0.1:8787
+	}
+
+	# Clean URLs: /privacy serves privacy.html
+	try_files {path} {path}.html
+
+	# Serve files, never dotfiles (.git, .env, ...)
+	file_server {
+		hide .*
+	}
+
+	# Files are not fingerprinted (cache-busted with ?v=N), so keep the cache short.
+	# Fonts never change under the same name. HTML is always revalidated.
+	@static path /assets/* /css/* /js/* /favicon.ico
+	header @static Cache-Control "public, max-age=3600"
+	@fonts path /assets/fonts/*
+	header @fonts Cache-Control "public, max-age=31536000, immutable"
+	@html path / /index.html /404.html /privacy /privacy.html
+	header @html Cache-Control "no-cache"
+
+	# Missing pages get the custom 404 (with a real 404 status)
+	handle_errors {
+		@notfound expression {err.status_code} == 404
+		handle @notfound {
+			import security_headers
+			rewrite * /404.html
+			file_server
+		}
+	}
+
+	# Access log without full IP addresses (see privacy.html): the last byte of an
+	# IPv4 address and everything past the /48 of an IPv6 address are zeroed.
+	log {
+		output file /var/log/caddy/dpmo-access.log {
+			roll_size 10MiB
+			roll_keep 5
+		}
+		format filter {
+			wrap json
+			fields {
+				request>remote_ip ip_mask {
+					ipv4 24
+					ipv6 48
+				}
+			}
+		}
+	}
+}
+
+donotpissmeoff.com {
+	import site
+}
+
+www.donotpissmeoff.com {
+	redir https://donotpissmeoff.com{uri} permanent
+}
+
+# Old address (bare IP over HTTP) -> domain
+http://158.69.233.210 {
+	redir https://donotpissmeoff.com{uri} permanent
+}
