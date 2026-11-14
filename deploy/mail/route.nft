@@ -1,0 +1,18 @@
+# DPMO! — let Postfix deliver mail from the server's own IP address.
+# Loaded by dpmo-mail-route.service.
+#
+# Everything else on this server leaves through a VPN, and VPN exits cannot
+# send mail (port 25 is blocked, and nobody trusts their addresses anyway).
+# The VPN client routes packets carrying its firewall mark outside the tunnel,
+# so this marks exactly one kind of traffic: SMTP connections opened by the
+# postfix user. It runs just before the VPN's own output chain.
+
+table inet dpmo_mail
+delete table inet dpmo_mail
+
+table inet dpmo_mail {
+	chain output {
+		type route hook output priority -160; policy accept;
+		meta skuid "postfix" tcp dport 25 meta mark set 0x0000e1f1
+	}
+}

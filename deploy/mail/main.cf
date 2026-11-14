@@ -1,0 +1,57 @@
+# DPMO! — Postfix as a forward-only mail server for donotpissmeoff.com.
+# Installed as /etc/postfix/main.cf by deploy/mail/install.sh.
+#
+# It accepts mail for the few addresses listed in /etc/postfix/virtual (kept on
+# the server, not in this repository) and forwards it to an outside mailbox.
+# No local mailboxes, no relaying for anyone else, nothing is stored once a
+# message has been handed over.
+
+compatibility_level = 3.9
+myhostname = donotpissmeoff.com
+myorigin = $myhostname
+smtpd_banner = $myhostname ESMTP
+biff = no
+inet_interfaces = all
+inet_protocols = ipv4
+
+# --- Who we accept mail for -------------------------------------------------
+mydestination =
+local_recipient_maps =
+relay_domains =
+mynetworks = 127.0.0.0/8
+virtual_alias_domains = donotpissmeoff.com
+virtual_alias_maps = hash:/etc/postfix/virtual
+
+# --- Inbound ----------------------------------------------------------------
+smtpd_helo_required = yes
+disable_vrfy_command = yes
+smtpd_relay_restrictions = permit_mynetworks, reject_unauth_destination
+smtpd_helo_restrictions = permit_mynetworks, reject_invalid_helo_hostname, reject_non_fqdn_helo_hostname
+smtpd_sender_restrictions = reject_non_fqdn_sender, reject_unknown_sender_domain
+smtpd_recipient_restrictions = reject_non_fqdn_recipient, reject_unknown_recipient_domain
+smtpd_data_restrictions = reject_unauth_pipelining
+message_size_limit = 26214400
+smtpd_client_connection_rate_limit = 30
+smtpd_client_message_rate_limit = 30
+
+# TLS with the certificate Caddy already keeps renewed for the website
+caddy_certs = /var/lib/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/donotpissmeoff.com
+smtpd_tls_security_level = may
+smtpd_tls_chain_files = $caddy_certs/donotpissmeoff.com.key, $caddy_certs/donotpissmeoff.com.crt
+smtpd_tls_loglevel = 1
+
+# --- Outbound (the forward) -------------------------------------------------
+# Leave from the server's own address: route.nft sends this traffic around the VPN.
+smtp_bind_address = 158.69.233.210
+smtp_tls_security_level = may
+smtp_tls_CApath = /etc/ssl/certs
+smtp_tls_loglevel = 1
+maximal_queue_lifetime = 3d
+bounce_queue_lifetime = 1d
+
+# Sender Rewriting Scheme (postsrsd): a forwarded message gets an envelope
+# sender in our domain, so the receiving side's SPF check passes.
+sender_canonical_maps = socketmap:unix:srs:forward
+sender_canonical_classes = envelope_sender
+recipient_canonical_maps = socketmap:unix:srs:reverse
+recipient_canonical_classes = envelope_recipient, header_recipient

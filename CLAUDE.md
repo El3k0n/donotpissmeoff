@@ -50,6 +50,9 @@ Server details, access and operational notes are in `CLAUDE.local.md` (not in th
   in all three HTML files whenever you change them. Fonts are cached for a year.
 - Only `404.html` carries `noindex`; everything else is indexable.
 - Access logs mask IP addresses (`ip_mask` in `deploy/Caddyfile`); the privacy notice says so.
+- Mail: Postfix on the same server forwards the domain's addresses to an outside mailbox
+  (`deploy/mail/`, update with `./deploy/mail/install.sh`). Which addresses and where they go is
+  on the server only (`/etc/postfix/virtual`), never in the repo.
 - Contact form: browser `POST /api/contact` (JSON) → Caddy → relay on localhost → signed webhook.
   The relay validates, drops bots, rate-limits per IP (in memory only, forgotten after 24h) and
   spools to disk before forwarding. Update it with `./deploy/contact/install.sh`.

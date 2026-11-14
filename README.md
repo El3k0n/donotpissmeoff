@@ -19,6 +19,7 @@ assets/             artwork, screenshots, self-hosted fonts
 deploy.sh           publishes the public files to the server (rsync)
 deploy/Caddyfile    web server config: HTTPS, headers, caching, clean URLs, 404
 deploy/contact/     contact form backend: a small Python relay and its systemd unit
+deploy/mail/        forward-only mail server (Postfix) for the domain's addresses
 docs/               notes on Mo's artwork and animation
 ```
 
@@ -45,6 +46,8 @@ Adding an interaction means adding a field to `state`, an entry in `actions` and
 
 **Server.** [Caddy](https://caddyserver.com) with automatic HTTPS, HSTS, a Content-Security-Policy that allows this origin only, and access logs with truncated IP addresses. No cookies and no analytics: the [privacy notice](https://donotpissmeoff.com/privacy) is short because there is little to disclose.
 
+**Mail.** The domain's few addresses are handled by Postfix on the same server, configured to do one thing: accept mail for those addresses and forward it ([deploy/mail](deploy/mail)). No mailboxes, no relaying, TLS with the certificate Caddy already renews, sender rewriting (SRS) so forwarded mail still passes SPF.
+
 ## Run it locally
 
 ```sh
@@ -58,9 +61,10 @@ Or any other static server. The contact form needs the relay, so locally it answ
 ```sh
 ./deploy.sh                    # site files -> web root
 ./deploy/contact/install.sh    # contact relay (only when it changes)
+./deploy/mail/install.sh       # mail forwarding (only when it changes)
 ```
 
-Both expect an SSH host alias (`DEPLOY_HOST`, default `vex-vps`). CSS and JS are cached for an hour and not fingerprinted: bump the `?v=N` in the HTML files when they change.
+All three expect an SSH host alias (`DEPLOY_HOST`, default `vex-vps`). CSS and JS are cached for an hour and not fingerprinted: bump the `?v=N` in the HTML files when they change.
 
 ## Rights
 

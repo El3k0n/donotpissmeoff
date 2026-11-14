@@ -1,0 +1,14 @@
+# DPMO! mail routing rule. Installed as /etc/systemd/system/dpmo-mail-route.service by deploy/mail/install.sh.
+[Unit]
+Description=DPMO! route outbound SMTP from Postfix outside the VPN
+Before=postfix.service
+After=nftables.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/nft -f /etc/dpmo-mail/route.nft
+ExecStop=/usr/sbin/nft delete table inet dpmo_mail
+
+[Install]
+WantedBy=multi-user.target
