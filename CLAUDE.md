@@ -50,6 +50,10 @@ Server details, access and operational notes are in `CLAUDE.local.md` (not in th
   in all three HTML files whenever you change them. Fonts are cached for a year.
 - Only `404.html` carries `noindex`; everything else is indexable.
 - Access logs mask IP addresses (`ip_mask` in `deploy/Caddyfile`); the privacy notice says so.
+- `/dilemma/` is Stool Pigeon, a prisoner's dilemma lab with its own repository, web root
+  (`/var/www/dilemma`) and deploy script; the route is in `deploy/Caddyfile`. It's linked from the
+  work section ("Apps & tools"). It stores saved strategies in localStorage only, as the privacy
+  notice says.
 - Mail: Postfix on the same server forwards the domain's addresses to an outside mailbox
   (`deploy/mail/`, update with `./deploy/mail/install.sh`). Which addresses and where they go is
   on the server only (`/etc/postfix/virtual`), never in the repo.

@@ -108,11 +108,11 @@
       <h2 class="title text-lime">Stuff<br>I shipped.</h2>
       <p class="lede">Stores, sites, web apps. All delivered, all working. The rest is under NDA or in the bin, where it belongs.</p>
     </div>
-    <!-- "Apps & tools" and "Websites" stay hidden until there is a project to show under them. -->
+    <!-- "Websites" stays hidden until there is a project to show under it. -->
     <div class="filters" role="group" aria-label="Filter projects">
       <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="all" aria-pressed="true">All of it</button>
       <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="ecom" aria-pressed="false">Stores</button>
-      <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="apps" aria-pressed="false" hidden>Apps &amp; tools</button>
+      <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="apps" aria-pressed="false">Apps &amp; tools</button>
       <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="sites" aria-pressed="false" hidden>Websites</button>
     </div>
     <div class="work-grid">
@@ -132,6 +132,15 @@
           <h3 class="work-card__name">Blink</h3>
           <p class="work-card__what">Custom theme, shop setup, integration with existing operations</p>
           <p class="work-card__link">blinkwearable.com →</p>
+        </div>
+      </a>
+      <a class="work-card" href="/dilemma/" data-if="showApps">
+        <img class="work-card__shot" src="assets/work-stool-pigeon.jpg" alt="Stool Pigeon: a grid of pigeons where cooperators and defectors spread in a kaleidoscope pattern" width="1600" height="900" loading="lazy">
+        <div class="work-card__body">
+          <p class="work-card__kind">Web app — side project</p>
+          <h3 class="work-card__name">Stool Pigeon</h3>
+          <p class="work-card__what">A prisoner's dilemma lab: tournaments, evolution, and a tiny language to write your own strategies</p>
+          <p class="work-card__link">Play it →</p>
         </div>
       </a>
     </div>
