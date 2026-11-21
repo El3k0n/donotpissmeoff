@@ -30,6 +30,17 @@
 		reverse_proxy 127.0.0.1:8787
 	}
 
+	# Stool Pigeon, the prisoner's dilemma lab: own repository (stool-pigeon), own web root,
+	# so this site's deploy.sh never deletes it. Files are not fingerprinted: always revalidate.
+	redir /dilemma /dilemma/ permanent
+	handle_path /dilemma/* {
+		root * /var/www/dilemma
+		header Cache-Control "no-cache"
+		file_server {
+			hide .*
+		}
+	}
+
 	# Clean URLs: /privacy serves privacy.html
 	try_files {path} {path}.html
 
@@ -52,6 +63,7 @@
 		@notfound expression {err.status_code} == 404
 		handle @notfound {
 			import security_headers
+			root * /var/www/dpmo
 			rewrite * /404.html
 			file_server
 		}
