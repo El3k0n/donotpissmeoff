@@ -7,6 +7,9 @@
 <meta name="description" content="What donotpissmeoff.com collects (very little), why, where it goes and for how long.">
 <meta name="theme-color" content="#ef709d">
 <link rel="canonical" href="https://donotpissmeoff.com/privacy">
+<link rel="alternate" hreflang="en" href="https://donotpissmeoff.com/privacy">
+<link rel="alternate" hreflang="it" href="https://donotpissmeoff.com/it/privacy">
+<link rel="alternate" hreflang="x-default" href="https://donotpissmeoff.com/privacy">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon-32.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -14,6 +17,8 @@
 <meta property="og:url" content="https://donotpissmeoff.com/privacy">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DPMO!">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
 <meta property="og:title" content="Privacy notice — DPMO!">
 <meta property="og:description" content="What donotpissmeoff.com collects (very little), why, where it goes and for how long.">
 <meta property="og:image" content="https://donotpissmeoff.com/assets/og.png">
@@ -22,6 +27,7 @@
 <meta property="og:image:alt" content="Don't piss me off! Diego Pignattini, web developer in Rome, next to Mo the pigeon at his laptop">
 <meta name="twitter:card" content="summary_large_image">
 
+<script src="/js/lang.js?v=1" defer></script>
 <link rel="preload" href="/assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/style.css?v=7">
@@ -60,6 +66,7 @@
       <ul>
         <li>No cookies. That's why there is no cookie banner.</li>
         <li>Nothing from the <a href="/dilemma/">prisoner's dilemma lab</a>. The strategies you save and the rules you pick are kept in your own browser (local storage), so they're still there next time. They never reach the server. A share link carries the strategy inside the link, after the #, a part browsers don't send to servers. To delete them, clear this site's data in your browser.</li>
+        <li>Nothing about the language you read the site in. The home page picks English or Italian from your browser's language settings, inside your browser. If you choose a language with the switcher at the bottom of the page, your browser remembers it (local storage, two letters: en or it) so the site opens in that language next time. It never reaches the server, and clearing this site's data removes it.</li>
         <li>No analytics, no ad pixels, no fingerprinting.</li>
         <li>No fonts, scripts or images loaded from other companies: everything on this site comes from this server.</li>
       </ul>
@@ -93,7 +100,7 @@
       <h2>Changes</h2>
       <p>If the way this site handles data changes, this page changes with it, and so does the date below.</p>
 
-      <p class="legal__updated">Last updated: 21 November 2026</p>
+      <p class="legal__updated">Last updated: 22 November 2026</p>
     </article>
   </div>
 </main>
@@ -106,6 +113,10 @@
       <a href="https://github.com/El3k0n/donotpissmeoff">Source code</a>
       <a href="/privacy" aria-current="page">Privacy</a>
       <a class="text-pink" href="/do-not-click" rel="nofollow">Do not click</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Language">
+      <a href="/privacy" hreflang="en" lang="en" data-lang="en" aria-current="page">English</a>
+      <a href="/it/privacy" hreflang="it" lang="it" data-lang="it">Italiano</a>
     </nav>
     <img class="site-footer__mo invert" src="/assets/pigeon-sign-hd.png?v=2" alt="" width="1512" height="1040" loading="lazy">
   </div>

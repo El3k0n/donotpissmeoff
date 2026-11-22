@@ -13,6 +13,7 @@ rsync -rlptz --delete --delete-excluded \
   --include='/index.html' \
   --include='/404.html' \
   --include='/privacy.html' \
+  --include='/it/***' \
   --include='/favicon.ico' \
   --include='/robots.txt' \
   --include='/sitemap.xml' \

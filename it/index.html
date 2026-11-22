@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DPMO! — Diego Pignattini, sviluppatore web</title>
+<meta name="description" content="Diego Pignattini, sviluppatore web a Roma. Siti, negozi Shopify, web app e automazioni. Veloce, pulito, senza drammi.">
+<meta name="theme-color" content="#ef709d">
+<link rel="canonical" href="https://donotpissmeoff.com/it/">
+<link rel="alternate" hreflang="en" href="https://donotpissmeoff.com/">
+<link rel="alternate" hreflang="it" href="https://donotpissmeoff.com/it/">
+<link rel="alternate" hreflang="x-default" href="https://donotpissmeoff.com/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+<meta property="og:url" content="https://donotpissmeoff.com/it/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DPMO!">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:title" content="DPMO! — Diego Pignattini, sviluppatore web">
+<meta property="og:description" content="Siti, negozi Shopify, web app e automazioni. Veloce, pulito, senza drammi.">
+<meta property="og:image" content="https://donotpissmeoff.com/assets/og-it.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Don't piss me off! Diego Pignattini, sviluppatore web a Roma, accanto a Mo il piccione al portatile">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://donotpissmeoff.com/#diego",
+      "name": "Diego Pignattini",
+      "jobTitle": "Web developer",
+      "url": "https://donotpissmeoff.com/",
+      "address": { "@type": "PostalAddress", "addressLocality": "Rome", "addressCountry": "IT" },
+      "vatID": "IT17017061007",
+      "knowsLanguage": ["en", "it"],
+      "knowsAbout": ["Shopify", "Liquid", "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Python", "Web automation"],
+      "sameAs": ["https://github.com/El3k0n"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://donotpissmeoff.com/#website",
+      "url": "https://donotpissmeoff.com/",
+      "name": "DPMO!",
+      "alternateName": "Don't Piss Me Off!",
+      "inLanguage": ["en", "it"],
+      "author": { "@id": "https://donotpissmeoff.com/#diego" }
+    }
+  ]
+}
+</script>
+
+<script src="/js/lang.js?v=1"></script>
+<link rel="preload" href="/assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/style.css?v=7">
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+
+<header class="site-header bg-pink">
+  <nav class="site-nav wrap" aria-label="Principale">
+    <a class="brand" href="#top">DPMO!</a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu +</button>
+    <div class="nav-links" id="nav-links">
+      <a href="#work">Lavori</a>
+      <a href="#deal">Il patto</a>
+      <a href="#translator">Traduttore</a>
+      <a href="#services">Servizi</a>
+      <a href="#mo">Mo</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-cta" href="#contact">Scrivimi.</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="section hero bg-pink" id="top">
+  <div class="wrap split split--center">
+    <div class="hero__copy">
+      <h1 class="hero__title"><span class="hero__badge tilt-left">Diego Pignattini — sviluppatore web — Roma</span> Don't piss<br>me off!</h1>
+      <p class="hero__lede">Scrivo codice e costruisco siti. Veloce, pulito e fatto come si deve. Niente tempi da tre mesi. Niente diciassette call per decidere dove va un bottone.</p>
+      <div class="hero__actions">
+        <a class="btn btn--lime btn--shadow tilt-left" href="#contact">Voglio il mio.</a>
+        <a class="btn btn--ink tilt-right" href="#work">Guarda i lavori</a>
+      </div>
+    </div>
+
+    <!-- Poke the pigeon -->
+    <div class="hero__mo">
+      <div class="pigeon-stage">
+        <div class="pigeon-stage__blob" aria-hidden="true"></div>
+        <div class="contents" data-if="moCalm">
+          <img class="pigeon-stage__mo" data-mo="laptop" src="/assets/pigeon-laptop-hd.png?v=2" alt="Mo il piccione al portatile, già stufo" width="1254" height="1254" fetchpriority="high">
+        </div>
+        <div class="contents" data-if="moAngry" hidden>
+          <img class="pigeon-stage__mo pigeon-stage__mo--angry" data-mo="annoyed" src="/assets/pigeon-annoyed-hd.png?v=2" alt="Mo il piccione, visibilmente seccato" width="1254" height="1254">
+        </div>
+        <div class="contents" data-if="moDead" hidden>
+          <img class="pigeon-stage__mo pigeon-stage__mo--dead" src="/assets/pigeon-dead-hd.png?v=2" alt="Mo il piccione, steso a terra" width="2170" height="725" loading="lazy">
+        </div>
+        <p class="pigeon-stage__quote" aria-live="polite" data-text="moQuote">Sì, sto lavorando.</p>
+      </div>
+      <div class="patience">
+        <div class="patience__head">
+          <p class="eyebrow">La pazienza di Mo</p>
+          <p class="patience__count" data-text="patienceLabel">6 / 6</p>
+        </div>
+        <div class="patience__bar" aria-hidden="true">
+          <div class="seg"></div>
+          <div class="seg"></div>
+          <div class="seg"></div>
+          <div class="seg"></div>
+          <div class="seg"></div>
+          <div class="seg"></div>
+        </div>
+        <button type="button" class="btn btn--dark btn--small" data-action="poke" data-text="pokeLabel">Stuzzica il piccione</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee bg-black text-lime" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Niente call inutili</span><span class="text-pink">///</span><span>Niente revisioni infinite</span><span class="text-pink">///</span><span>Codice che funziona</span><span class="text-pink">///</span><span>Scadenze rispettate</span><span class="text-pink">///</span><span>Zero stronzate</span><span class="text-pink">///</span>
+    <span>Niente call inutili</span><span class="text-pink">///</span><span>Niente revisioni infinite</span><span class="text-pink">///</span><span>Codice che funziona</span><span class="text-pink">///</span><span>Scadenze rispettate</span><span class="text-pink">///</span><span>Zero stronzate</span><span class="text-pink">///</span>
+  </div>
+</div>
+
+<!-- Work -->
+<section class="section work bg-black" id="work">
+  <div class="wrap stack">
+    <div class="section-head">
+      <h2 class="title text-lime">Roba<br>consegnata.</h2>
+      <p class="lede">Negozi, siti, app. Tutti consegnati, tutti funzionanti. Il resto è sotto NDA o nel cestino, dove deve stare.</p>
+    </div>
+    <!-- "Siti web" stays hidden until there is a project to show under it. -->
+    <div class="filters" role="group" aria-label="Filtra i progetti">
+      <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="all" aria-pressed="true">Tutto quanto</button>
+      <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="ecom" aria-pressed="false">Negozi</button>
+      <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="apps" aria-pressed="false">App e strumenti</button>
+      <button type="button" class="toggle toggle--dark filter" data-action="filter" data-value="sites" aria-pressed="false" hidden>Siti web</button>
+    </div>
+    <div class="work-grid">
+      <a class="work-card" href="https://ravingroom.com" data-if="showEcom">
+        <img class="work-card__shot" src="/assets/work-raving-room.webp" alt="Il negozio Raving Room con il tema su misura" width="1236" height="704" loading="lazy">
+        <div class="work-card__body">
+          <p class="work-card__kind">E-commerce — Shopify</p>
+          <h3 class="work-card__name">Raving Room</h3>
+          <p class="work-card__what">Tema su misura e configurazione del negozio</p>
+          <p class="work-card__link">ravingroom.com →</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://blinkwearable.com" data-if="showEcom">
+        <img class="work-card__shot" src="/assets/work-blink.webp" alt="Il negozio di Blink: un dito sul braccialetto di pagamento nero, sotto il titolo Play;seamless" width="1236" height="695" loading="lazy">
+        <div class="work-card__body">
+          <p class="work-card__kind">E-commerce — wearable di pagamento NFC</p>
+          <h3 class="work-card__name">Blink</h3>
+          <p class="work-card__what">Tema su misura, configurazione del negozio, integrazione con i processi esistenti</p>
+          <p class="work-card__link">blinkwearable.com →</p>
+        </div>
+      </a>
+      <a class="work-card" href="/dilemma/" data-if="showApps">
+        <img class="work-card__shot" src="/assets/work-stool-pigeon.webp" alt="Stool Pigeon: una griglia di piccioni dove cooperatori e traditori si diffondono a caleidoscopio" width="1236" height="695" loading="lazy">
+        <div class="work-card__body">
+          <p class="work-card__kind">Web app — progetto personale</p>
+          <h3 class="work-card__name">Stool Pigeon</h3>
+          <p class="work-card__what">Un laboratorio sul dilemma del prigioniero: tornei, evoluzione e un piccolo linguaggio per scrivere le tue strategie (in inglese)</p>
+          <p class="work-card__link">Giocaci →</p>
+        </div>
+      </a>
+      <a class="work-card" href="https://github.com/El3k0n/gameoflife" data-if="showApps">
+        <img class="work-card__shot" src="/assets/work-genesis.webp" alt="Genesis su un Mac: uno schema simmetrico Day &amp; Night in rosa e verde, la libreria degli schemi a sinistra e l'editor delle regole a destra" width="1236" height="695" loading="lazy">
+        <div class="work-card__body">
+          <p class="work-card__kind">App macOS — progetto personale</p>
+          <h3 class="work-card__name">Genesis</h3>
+          <p class="work-card__what">Il Gioco della vita di Conway come app nativa per Mac: quattro milioni di celle, viaggi nel tempo, 19 set di regole con cui pasticciare</p>
+          <p class="work-card__link">Scaricala da GitHub →</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- The deal -->
+<section class="section deal bg-white" id="deal">
+  <div class="wrap stack stack--loose">
+    <div class="section-head">
+      <h2 class="title">Il patto.</h2>
+      <p class="lede">Io ti do un sito fatto bene, in fretta, a un prezzo onesto. In cambio, tu non mi fai impazzire. Mi sembra giusto.</p>
+    </div>
+    <div class="deal-grid">
+      <article class="deal-card bg-white">
+        <p class="deal-card__num">01</p>
+        <h3 class="deal-card__title">Mi dici cosa ti serve. Una volta.</h3>
+        <p class="deal-card__text">Un brief chiaro vale più di dieci riunioni. Scrivilo bene e partiamo subito.</p>
+      </article>
+      <article class="deal-card bg-lime">
+        <p class="deal-card__num">02</p>
+        <h3 class="deal-card__title">Lo costruisco. Veloce.</h3>
+        <p class="deal-card__text">Codice pulito, prestazioni vere, niente template tenuti insieme col nastro adesivo.</p>
+      </article>
+      <article class="deal-card bg-pink">
+        <p class="deal-card__num">03</p>
+        <h3 class="deal-card__title">Tu non mi fai incazzare. Fine.</h3>
+        <p class="deal-card__text">Niente "e se lo provassimo in blu?" alla revisione quattordici. Grazie.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Translator -->
+<section class="section translator bg-lime" id="translator">
+  <div class="wrap stack">
+    <div class="section-head">
+      <h2 class="title">Traduttore<br>cliente-sviluppatore.</h2>
+      <p class="lede">Scegli una cosa che stavi per dire. Scopri cosa sento davvero. Gratis, a differenza delle revisioni.</p>
+    </div>
+    <div class="translator__layout">
+      <!-- Below 1024px main.js fills this select and it replaces the list of buttons. -->
+      <div class="phrase-picker">
+        <label class="eyebrow" for="phrase-select">Tu dici</label>
+        <select id="phrase-select" aria-controls="translation"></select>
+      </div>
+      <div class="phrase-list" role="group" aria-label="Cose che dicono i clienti">
+        <button type="button" class="toggle phrase" data-action="phrase" data-value="0" aria-pressed="true">"Puoi fare il logo più grande?"</button>
+        <button type="button" class="toggle phrase" data-action="phrase" data-value="1" aria-pressed="false">"Dovrebbe essere una cosa veloce."</button>
+        <button type="button" class="toggle phrase" data-action="phrase" data-value="2" aria-pressed="false">"Solo una piccola modifica."</button>
+        <button type="button" class="toggle phrase" data-action="phrase" data-value="3" aria-pressed="false">"Puoi renderlo più accattivante?"</button>
+        <button type="button" class="toggle phrase" data-action="phrase" data-value="4" aria-pressed="false">"Questo lo faceva mio nipote."</button>
+        <button type="button" class="toggle phrase" data-action="phrase" data-value="5" aria-pressed="false">"Ci serve per ieri."</button>
+        <button type="button" class="toggle phrase" data-action="phrase" data-value="6" aria-pressed="false">"Ci facciamo una call veloce?"</button>
+      </div>
+      <div class="translation bg-black" id="translation" aria-live="polite" aria-atomic="true">
+        <div class="translation__part translation__part--says">
+          <p class="eyebrow text-pink">Tu dici</p>
+          <p class="translation__says">"<span data-text="heardSays">Puoi fare il logo più grande?</span>"</p>
+        </div>
+        <div class="translation__part">
+          <p class="eyebrow text-lime">Io sento</p>
+          <p class="translation__means" data-text="heardMeans">Non ho guardato nient'altro.</p>
+        </div>
+        <div class="translation__foot">
+          <img class="invert" src="/assets/pigeon-annoyed-hd.png?v=2" alt="" width="1254" height="1254" loading="lazy">
+          <p>Mo le ha sentite tutte. Due volte questa settimana.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section bg-white" id="services">
+  <div class="wrap split">
+    <div class="services__main">
+      <h2 class="title">Cosa faccio.<br>Dritto al punto.</h2>
+      <ul class="service-list">
+        <li class="service">
+          <h3 class="service__name">Siti web</h3>
+          <p class="service__text">Siti aziendali, landing page, portfolio. Veloci da caricare, facili da aggiornare.</p>
+        </li>
+        <li class="service">
+          <h3 class="service__name">Negozi Shopify</h3>
+          <p class="service__text">Temi su misura, app, integrazioni. Negozi che vendono, invece di fare solo scena.</p>
+        </li>
+        <li class="service">
+          <h3 class="service__name">Web app e strumenti</h3>
+          <p class="service__text">Dashboard, gestionali, strumenti interni. Costruiti intorno a come lavori davvero.</p>
+        </li>
+        <li class="service">
+          <h3 class="service__name">Automazioni</h3>
+          <p class="service__text">Se lo fai a mano ogni giorno, può diventare codice. Fogli di calcolo, ordini, la roba noiosa.</p>
+        </li>
+      </ul>
+    </div>
+    <aside class="nope bg-black">
+      <h3 class="nope__title">Cosa non faccio.</h3>
+      <ul class="nope__list">
+        <li>Loghi e branding. Lo costruisco, non lo disegno.</li>
+        <li>Riunioni che potevano essere un messaggio.</li>
+        <li>Prove "veloci" gratis per vedere se andiamo d'accordo.</li>
+        <li>La revisione quattordici.</li>
+      </ul>
+      <img class="nope__mo invert" data-mo="fly" src="/assets/pigeon-fly-hd.png?v=2" alt="Mo che vola via col portatile sotto l'ala" width="2142" height="734">
+    </aside>
+  </div>
+</section>
+
+<!-- Tools -->
+<section class="section tools bg-pink" aria-labelledby="tools-title">
+  <div class="wrap stack">
+    <div class="tools__head">
+      <h2 class="subtitle" id="tools-title">Strumenti con cui non litigo.</h2>
+      <p class="tools__hint">Passaci sopra. Gli piace l'attenzione.</p>
+    </div>
+    <ul class="chips">
+      <li class="chip">Shopify</li>
+      <li class="chip">Liquid</li>
+      <li class="chip">JavaScript</li>
+      <li class="chip">TypeScript</li>
+      <li class="chip">React</li>
+      <li class="chip">Next.js</li>
+      <li class="chip">Node.js</li>
+      <li class="chip">Python</li>
+      <li class="chip">Supabase</li>
+      <li class="chip">Vercel</li>
+      <li class="chip">Railway</li>
+      <li class="chip">Linux</li>
+      <li class="chip">n8n</li>
+      <li class="chip">Agenti AI</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section bg-white" id="process">
+  <div class="wrap stack stack--loose">
+    <div class="section-head">
+      <h2 class="title">Come funziona.</h2>
+      <p class="lede">Quattro passi. Se ne servono di più, qualcuno ha aggiunto una riunione.</p>
+    </div>
+    <ol class="steps">
+      <li class="step bg-white">
+        <div class="step__art"><img src="/assets/pigeon-laptop-hd.png?v=2" alt="" width="1254" height="1254" loading="lazy"></div>
+        <p class="eyebrow">Passo 1</p>
+        <h3 class="step__title">Brief</h3>
+        <p class="step__text">Scrivi cosa ti serve. Io faccio le domande a cui non avevi pensato. Ci accordiamo su prezzo e data.</p>
+      </li>
+      <li class="step bg-lime">
+        <div class="step__art step__art--wide"><img src="/assets/pigeon-fly-hd.png?v=2" alt="" width="2142" height="734" loading="lazy"></div>
+        <p class="eyebrow">Passo 2</p>
+        <h3 class="step__title">Sviluppo</h3>
+        <p class="step__text">Sparisco e lo costruisco. Ricevi un link per vederlo prendere forma. Niente call di aggiornamento.</p>
+      </li>
+      <li class="step bg-pink">
+        <div class="step__art"><img src="/assets/pigeon-annoyed-hd.png?v=2" alt="" width="1254" height="1254" loading="lazy"></div>
+        <p class="eyebrow">Passo 3</p>
+        <h3 class="step__title">Correzioni</h3>
+        <p class="step__text">Mi mandi tutto quello che vuoi cambiare, in un'unica lista. Io correggo. Mo osserva.</p>
+      </li>
+      <li class="step bg-white">
+        <div class="step__art"><img src="/assets/pigeon-sign-hd.png?v=2" alt="Mo con un cartello: Done. Now leave." width="1512" height="1040" loading="lazy"></div>
+        <p class="eyebrow">Passo 4</p>
+        <h3 class="step__title">Lancio</h3>
+        <p class="step__text">Va online. Ricevi le chiavi e una breve guida. Fatto. Ora vattene.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Meet Mo -->
+<section class="section bg-pink" id="mo">
+  <div class="wrap split split--center">
+    <div class="meet__copy">
+      <h2 class="title">Ecco Mo.</h2>
+      <p class="meet__intro">Mo è il piccione di casa. Cresciuto in strada, sfacciato, perennemente seccato. Non è una mascotte da coccolare e non cerca di piacere. Vuole solo che il progetto sia finito.</p>
+      <p class="meet__text">Tecnicamente è il mio project manager. Scegli una situazione e guarda come la prende.</p>
+      <div class="moods" role="group" aria-label="Gli umori di Mo">
+        <button type="button" class="toggle pill" data-action="mood" data-value="0" aria-pressed="true">Brief chiaro</button>
+        <button type="button" class="toggle pill" data-action="mood" data-value="1" aria-pressed="false">Deploy riuscito al primo colpo</button>
+        <button type="button" class="toggle pill" data-action="mood" data-value="2" aria-pressed="false">Revisione quattordici</button>
+        <button type="button" class="toggle pill" data-action="mood" data-value="3" aria-pressed="false">Progetto consegnato</button>
+      </div>
+    </div>
+    <div class="meet__stage">
+      <figure class="mood-card bg-white" aria-live="polite">
+        <div class="mood-card__art">
+          <div class="contents" data-if="mood0">
+            <img class="mood-card__mo" data-mo="laptop" src="/assets/pigeon-laptop-hd.png?v=2" alt="Mo che lavora tranquillo al portatile">
+          </div>
+          <div class="contents" data-if="mood1" hidden>
+            <img class="mood-card__mo mood-card__mo--fly" data-mo="fly" src="/assets/pigeon-fly-hd.png?v=2" alt="Mo che vola a tutta velocità col portatile">
+          </div>
+          <div class="contents" data-if="mood2" hidden>
+            <img class="mood-card__mo mood-card__mo--dead" src="/assets/pigeon-dead-hd.png?v=2" alt="Mo crollato a terra" loading="lazy">
+          </div>
+          <div class="contents" data-if="mood3" hidden>
+            <img class="mood-card__mo mood-card__mo--sign" data-mo="sign" src="/assets/pigeon-sign-hd.png?v=2" alt="Mo con un cartello: Done. Now leave.">
+          </div>
+        </div>
+        <figcaption class="mood-card__caption" data-text="moodCaption">Va bene. Con questo ci può lavorare.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-white" id="faq">
+  <div class="wrap split">
+    <div class="faq__intro">
+      <h2 class="title">Prima<br>di chiedere.</h2>
+      <p class="lede">Le risposte alle domande che altrimenti diventerebbero una call.</p>
+    </div>
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary>Quanto è veloce "veloce"?</summary>
+        <p>Dipende dal progetto. Prima di iniziare hai una data di consegna, e la rispetto. Se non ci riesco, lo sai da me, non dal calendario.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Quanto costa?</summary>
+        <p>Prezzo fisso, concordato prima. Nessun tassametro che gira in sottofondo, nessuna fattura a sorpresa alla fine. Dimmi il tuo budget e ti dico cosa ci sta dentro.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Fai loghi o branding?</summary>
+        <p>No. Sono uno sviluppatore. Porta il tuo brand e lo faccio funzionare su uno schermo. Se non ce l'hai ancora, sistema prima quello e poi torna.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Ci facciamo una call?</summary>
+        <p>Una. Breve. Con un ordine del giorno. Tutto il resto per iscritto, così nessuno deve ricordarsi chi ha detto cosa.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Quante revisioni ho?</summary>
+        <p>Due giri, inclusi nel prezzo. Manda tutto in un'unica lista. Dopo, Mo comincia a contare, e la fattura pure.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Lavori anche fuori dall'Italia?</summary>
+        <p>Sì. Sono a Roma, internet è ovunque. Rispondo in italiano e in inglese. Mo tuba e basta.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="marquee marquee--big bg-lime" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Hai un progetto?</span><span>Don't piss me off!</span><span>Hai un progetto?</span><span>Don't piss me off!</span>
+    <span>Hai un progetto?</span><span>Don't piss me off!</span><span>Hai un progetto?</span><span>Don't piss me off!</span>
+  </div>
+</div>
+
+<!-- Contact -->
+<section class="section contact bg-black" id="contact">
+  <div class="wrap split">
+    <div class="contact__intro">
+      <h2 class="title text-lime">Togliamoci<br>il pensiero.</h2>
+      <p class="contact__lede">Dimmi cosa ti serve, per quando e quanto vuoi spendere. Rispondo in fretta. Se il progetto è una perdita di tempo, te lo dico altrettanto in fretta.</p>
+      <img class="contact__logo" src="/assets/logo-480.png" alt="Logo Don't Piss Me Off!" width="220" height="220" loading="lazy">
+    </div>
+
+    <div class="contact__main">
+      <!-- Sent by main.js as JSON to /api/contact (see deploy/contact). data-value stays in English: the relay accepts only those. -->
+      <form class="form" id="contact-form" action="/api/contact" method="post" data-if="notSent">
+        <fieldset class="form__types">
+          <legend class="eyebrow">Cosa ti serve?</legend>
+          <div class="form__pills">
+            <button type="button" class="toggle pill" data-action="type" data-value="Website" aria-pressed="false">Sito web</button>
+            <button type="button" class="toggle pill" data-action="type" data-value="Shopify store" aria-pressed="false">Negozio Shopify</button>
+            <button type="button" class="toggle pill" data-action="type" data-value="Web app" aria-pressed="false">Web app</button>
+            <button type="button" class="toggle pill" data-action="type" data-value="Automation" aria-pressed="false">Automazione</button>
+            <button type="button" class="toggle pill" data-action="type" data-value="No idea yet" aria-pressed="false">Non lo so ancora</button>
+          </div>
+        </fieldset>
+        <div class="form__row">
+          <div class="field">
+            <label class="eyebrow" for="contact-name">Il tuo nome</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Nome e cognome">
+          </div>
+          <div class="field">
+            <label class="eyebrow" for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required placeholder="tu@dominio.it">
+          </div>
+        </div>
+        <div class="field">
+          <label class="eyebrow" for="contact-message">Il brief (corto, ti prego)</label>
+          <textarea id="contact-message" name="message" required rows="5" placeholder="Cos'è, per quando ti serve, quanto vuoi spendere."></textarea>
+        </div>
+        <label class="pledge" for="contact-pledge">
+          <input id="contact-pledge" name="pledge" type="checkbox">
+          <span>Giuro solennemente di non far incazzare Diego.</span>
+        </label>
+        <div class="form__trap" aria-hidden="true">
+          <label for="contact-website">Lascia vuoto</label>
+          <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="form__error" role="alert" data-if="formError" data-text="formError" hidden></p>
+        <div class="form__actions">
+          <button type="submit" class="btn btn--white btn--shadow btn--tall form__send" id="send-btn" data-text="sendLabel" disabled>Prima giura.</button>
+          <img src="/assets/pigeon-annoyed-hd.png?v=2" alt="" width="1254" height="1254" loading="lazy">
+        </div>
+        <p class="form__privacy">Uso quello che scrivi qui per risponderti. Fine. I dettagli sono nell'<a href="/it/privacy">informativa privacy</a>.</p>
+      </form>
+
+      <div class="sent" role="status" data-if="sent" hidden>
+        <img class="sent__mo" data-mo="fly" src="/assets/pigeon-fly-hd.png?v=2" alt="Mo che vola via col tuo messaggio" width="2142" height="734">
+        <h3 class="sent__title">Inviato. Ci pensa Mo.</h3>
+        <p class="sent__text">Ti rispondo presto. Per favore non mandare un altro messaggio per chiedere se l'ho ricevuto. L'ho ricevuto.</p>
+        <button type="button" class="btn btn--dark btn--small btn--plain" data-action="reset">Mandane un altro (davvero?)</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer bg-black">
+  <div class="wrap">
+    <p class="site-footer__legal">© 2026 Diego Pignattini — P. IVA IT17017061007 — Roma</p>
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="https://github.com/El3k0n">GitHub</a>
+      <a href="https://github.com/El3k0n/donotpissmeoff">Codice sorgente</a>
+      <a href="/it/privacy">Privacy</a>
+      <!-- Leads to the 404 page on purpose. -->
+      <a class="text-pink" href="/it/non-cliccare" rel="nofollow">Non cliccare</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Lingua">
+      <a href="/" hreflang="en" lang="en" data-lang="en">English</a>
+      <a href="/it/" hreflang="it" lang="it" data-lang="it" aria-current="page">Italiano</a>
+    </nav>
+    <img class="site-footer__mo invert" src="/assets/pigeon-sign-hd.png?v=2" alt="" width="1512" height="1040" loading="lazy">
+  </div>
+</footer>
+
+<script src="/js/main.js?v=7"></script>
+<script src="/js/mo.js?v=2"></script>
+</body>
+</html>

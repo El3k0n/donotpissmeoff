@@ -7,6 +7,9 @@
 <meta name="description" content="Diego Pignattini, web developer in Rome. Websites, Shopify stores, web apps and automations. Fast, clean, no drama.">
 <meta name="theme-color" content="#ef709d">
 <link rel="canonical" href="https://donotpissmeoff.com/">
+<link rel="alternate" hreflang="en" href="https://donotpissmeoff.com/">
+<link rel="alternate" hreflang="it" href="https://donotpissmeoff.com/it/">
+<link rel="alternate" hreflang="x-default" href="https://donotpissmeoff.com/">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/assets/favicon-32.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -14,6 +17,8 @@
 <meta property="og:url" content="https://donotpissmeoff.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DPMO!">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
 <meta property="og:title" content="DPMO! — Diego Pignattini, web developer">
 <meta property="og:description" content="Websites, Shopify stores, web apps and automations. Fast, clean, no drama.">
 <meta property="og:image" content="https://donotpissmeoff.com/assets/og.png">
@@ -44,13 +49,14 @@
       "url": "https://donotpissmeoff.com/",
       "name": "DPMO!",
       "alternateName": "Don't Piss Me Off!",
-      "inLanguage": "en",
+      "inLanguage": ["en", "it"],
       "author": { "@id": "https://donotpissmeoff.com/#diego" }
     }
   ]
 }
 </script>
 
+<script src="js/lang.js?v=1"></script>
 <link rel="preload" href="assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css?v=7">
@@ -503,11 +509,15 @@
       <!-- Leads to the 404 page on purpose. -->
       <a class="text-pink" href="/do-not-click" rel="nofollow">Do not click</a>
     </nav>
+    <nav class="lang-switch" aria-label="Language">
+      <a href="/" hreflang="en" lang="en" data-lang="en" aria-current="page">English</a>
+      <a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano</a>
+    </nav>
     <img class="site-footer__mo invert" src="assets/pigeon-sign-hd.png?v=2" alt="" width="1512" height="1040" loading="lazy">
   </div>
 </footer>
 
-<script src="js/main.js?v=6"></script>
+<script src="js/main.js?v=7"></script>
 <script src="js/mo.js?v=2"></script>
 </body>
 </html>

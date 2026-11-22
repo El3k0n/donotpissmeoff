@@ -2,7 +2,7 @@
 
 Source of [donotpissmeoff.com](https://donotpissmeoff.com), the portfolio of Diego Pignattini, web developer in Rome.
 
-It is a static site: three HTML pages, one stylesheet, two small scripts. No framework, no build step, no dependencies, no third-party requests. The whole home page, pigeon included, weighs less than most cookie banners.
+It is a static site in English and Italian: a home, a privacy notice and a 404 page in each language, one stylesheet, three small scripts. No framework, no build step, no dependencies, no third-party requests. The whole home page, pigeon included, weighs less than most cookie banners.
 
 ![Don't Piss Me Off! logo](assets/logo-480.png)
 
@@ -12,9 +12,11 @@ It is a static site: three HTML pages, one stylesheet, two small scripts. No fra
 index.html          home
 privacy.html        privacy notice (served as /privacy)
 404.html            not-found page, served for every missing URL
+it/                 the same three pages in Italian (/it/, /it/privacy, 404 under /it/)
 css/style.css       all the styles: tokens, components, sections, responsive rules
-js/main.js          page interactions: one state object, one render()
+js/main.js          page interactions: one state object, one render(), strings in both languages
 js/mo.js            Mo the pigeon's animation (SVG clipping over the PNG artwork)
+js/lang.js          language: sends Italian browsers to /it/, remembers the footer switcher
 assets/             artwork, screenshots, self-hosted fonts
 deploy.sh           publishes the public files to the server (rsync)
 deploy/Caddyfile    web server config: HTTPS, headers, caching, clean URLs, 404
@@ -40,6 +42,8 @@ docs/               notes on Mo's artwork and animation
 
 Adding an interaction means adding a field to `state`, an entry in `actions` and an attribute in the HTML.
 
+**Two languages.** Each language has its own pages and URLs (`/` and `/it/`), linked with `hreflang`, so search engines index both. The text the scripts write lives in one table per language in `main.js`, picked by the page's `lang`. `js/lang.js` loads before the stylesheet: on a first visit to the English home it sends browsers that prefer Italian to `/it/` before anything is drawn, and a choice made with the footer switcher is remembered in `localStorage` and always wins. Arriving from another page of the site counts as a choice too, so nobody gets bounced back and forth.
+
 **Mo.** The pigeon is raster line art. `js/mo.js` wraps each large illustration in an inline SVG, cuts out the part that moves (head or wing) with a clip path and lets CSS keyframes rotate it; eyelids and steam are vectors drawn on top. Animations pause when off-screen. Details in [docs/mo-animation.md](docs/mo-animation.md).
 
 **Contact form.** The browser posts JSON to `/api/contact`. Caddy proxies it to a relay on localhost ([deploy/contact/contact_relay.py](deploy/contact/contact_relay.py), Python standard library only) that validates the input, drops bots (honeypot field, minimum fill time), rate-limits per IP, writes the message to a spool on disk and forwards it to a signed webhook. A message is confirmed to the visitor only once it is on disk, and stays in the spool until the webhook accepts it, so nothing is lost if the receiving side is down. The service runs as its own user under a locked-down systemd unit; secrets live on the server, never in this repository.
@@ -64,7 +68,7 @@ Or any other static server. The contact form needs the relay, so locally it answ
 ./deploy/mail/install.sh       # mail forwarding (only when it changes)
 ```
 
-All three expect an SSH host alias (`DEPLOY_HOST`, default `vex-vps`). CSS and JS are cached for an hour and not fingerprinted: bump the `?v=N` in the HTML files when they change.
+All three expect an SSH host alias (`DEPLOY_HOST`, default `vex-vps`). CSS, JS and images are cached for an hour and not fingerprinted: bump the `?v=N` in the HTML files of both languages when they change.
 
 ## Rights
 

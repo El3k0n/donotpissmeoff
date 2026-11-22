@@ -5,62 +5,113 @@
      data-if="flag"              shown only while the flag is true
      data-text="slot"            text filled in from the state
      aria-pressed                the selected button of a group
-   The same file runs on the 404 page, so every lookup tolerates missing elements. */
+   The same file runs on the English and Italian homes and 404 pages, so every lookup
+   tolerates missing elements. */
 (() => {
   'use strict';
 
   const MAX_PATIENCE = 6;
 
-  const QUOTES = [
-    'Yes, I am working.',
-    'Don’t.',
-    'I said don’t.',
-    'This is why I charge up front.',
-    'Do you poke your accountant too?',
-    'Last warning.',
-    'You killed him. Happy?'
-  ];
-
-  // [what the client says, what Diego hears]
-  const TRANSLATIONS = [
-    ['Can you make the logo bigger?', 'I have not looked at anything else.'],
-    ['It should be a quick one.', 'It will not be a quick one.'],
-    ['Just one small change.', 'Seven changes in a trench coat.'],
-    ['Can you make it pop?', 'I don’t know what I want. I’ll know when I don’t see it.'],
-    ['My nephew could do this.', 'Great. Call your nephew.'],
-    ['We need it by yesterday.', 'We started thinking about it today.'],
-    ['Can we hop on a quick call?', 'This could have been two lines of text.']
-  ];
-
-  const MOOD_CAPTIONS = [
-    'Fine. This he can work with.',
-    'Gone before anything breaks.',
-    'Cause of death: "one last tweak".',
-    'Done. Now leave.'
-  ];
-
-  // 404 page: one line per attempt to revive Mo
-  const REVIVE_LINES = [
-    'R.I.P. Mo (back tomorrow)',
-    'Nope. Still dead.',
-    'He twitched. Probably wind.',
-    'One eye opened. It judged you.',
-    'He says: fix your links.',
-    'Stop. Let him rest.'
-  ];
-
-  // Shown when /api/contact answers with an error status
-  const FORM_ERRORS = {
-    400: 'Something in there looks off. Check your name, email and brief.',
-    429: 'Easy. That’s enough messages for now. Try again later.',
-    other: 'Mo dropped it. Try again in a minute.'
+  // Every string the script writes. The page's <html lang> picks the set.
+  const STRINGS = {
+    en: {
+      quotes: [
+        'Yes, I am working.',
+        'Don’t.',
+        'I said don’t.',
+        'This is why I charge up front.',
+        'Do you poke your accountant too?',
+        'Last warning.',
+        'You killed him. Happy?'
+      ],
+      // [what the client says, what Diego hears]
+      translations: [
+        ['Can you make the logo bigger?', 'I have not looked at anything else.'],
+        ['It should be a quick one.', 'It will not be a quick one.'],
+        ['Just one small change.', 'Seven changes in a trench coat.'],
+        ['Can you make it pop?', 'I don’t know what I want. I’ll know when I don’t see it.'],
+        ['My nephew could do this.', 'Great. Call your nephew.'],
+        ['We need it by yesterday.', 'We started thinking about it today.'],
+        ['Can we hop on a quick call?', 'This could have been two lines of text.']
+      ],
+      moodCaptions: [
+        'Fine. This he can work with.',
+        'Gone before anything breaks.',
+        'Cause of death: "one last tweak".',
+        'Done. Now leave.'
+      ],
+      // 404 page: one line per attempt to revive Mo
+      reviveLines: [
+        'R.I.P. Mo (back tomorrow)',
+        'Nope. Still dead.',
+        'He twitched. Probably wind.',
+        'One eye opened. It judged you.',
+        'He says: fix your links.',
+        'Stop. Let him rest.'
+      ],
+      // Shown when /api/contact answers with an error status
+      formErrors: {
+        400: 'Something in there looks off. Check your name, email and brief.',
+        429: 'Easy. That’s enough messages for now. Try again later.',
+        other: 'Mo dropped it. Try again in a minute.'
+      },
+      send: { locked: 'Swear first.', sending: 'Sending…', ready: 'Send it. No take-backs.' },
+      poke: 'Poke the pigeon',
+      revive: 'Say sorry & revive Mo',
+      menu: { closed: 'Menu +', open: 'Close −' }
+    },
+    it: {
+      quotes: [
+        'Sì, sto lavorando.',
+        'Non farlo.',
+        'Ho detto non farlo.',
+        'Ecco perché mi faccio pagare in anticipo.',
+        'Stuzzichi così anche il tuo commercialista?',
+        'Ultimo avvertimento.',
+        'L’hai ucciso. Contento?'
+      ],
+      translations: [
+        ['Puoi fare il logo più grande?', 'Non ho guardato nient’altro.'],
+        ['Dovrebbe essere una cosa veloce.', 'Non sarà una cosa veloce.'],
+        ['Solo una piccola modifica.', 'Sette modifiche travestite da una.'],
+        ['Puoi renderlo più accattivante?', 'Non so cosa voglio. Lo saprò quando non lo vedrò.'],
+        ['Questo lo faceva mio nipote.', 'Ottimo. Chiama tuo nipote.'],
+        ['Ci serve per ieri.', 'Abbiamo iniziato a pensarci oggi.'],
+        ['Ci facciamo una call veloce?', 'Bastavano due righe di testo.']
+      ],
+      moodCaptions: [
+        'Va bene. Con questo ci può lavorare.',
+        'Sparito prima che qualcosa si rompa.',
+        'Causa del decesso: "un ultimo ritocco".',
+        'Fatto. Ora vattene.'
+      ],
+      reviveLines: [
+        'R.I.P. Mo (torna domani)',
+        'No. Ancora morto.',
+        'Si è mosso. Sarà stato il vento.',
+        'Ha aperto un occhio. Ti ha giudicato.',
+        'Dice: sistema i tuoi link.',
+        'Basta. Lascialo riposare.'
+      ],
+      formErrors: {
+        400: 'Qualcosa non torna. Controlla nome, email e brief.',
+        429: 'Calma. Per ora di messaggi ne bastano. Riprova più tardi.',
+        other: 'A Mo è caduto. Riprova tra un minuto.'
+      },
+      send: { locked: 'Prima giura.', sending: 'Invio…', ready: 'Mandalo. Niente ripensamenti.' },
+      poke: 'Stuzzica il piccione',
+      revive: 'Chiedi scusa e resuscita Mo',
+      menu: { closed: 'Menu +', open: 'Chiudi −' }
+    }
   };
+
+  const T = STRINGS[document.documentElement.lang] || STRINGS.en;
 
   const state = {
     pokes: 0,          // hero: times Mo was poked
     filter: 'all',     // work: all | ecom | apps | sites
-    phrase: 0,         // translator: index into TRANSLATIONS
-    mood: 0,           // meet Mo: index into MOOD_CAPTIONS
+    phrase: 0,         // translator: index into T.translations
+    mood: 0,           // meet Mo: index into T.moodCaptions
     type: null,        // contact: selected project type
     pledged: false,    // contact: checkbox ticked
     sending: false,
@@ -103,20 +154,20 @@
       formError: state.formError !== ''
     };
 
-    let sendLabel = 'Swear first.';
-    if (state.sending) { sendLabel = 'Sending…'; }
-    else if (state.pledged) { sendLabel = 'Send it. No take-backs.'; }
+    let sendLabel = T.send.locked;
+    if (state.sending) { sendLabel = T.send.sending; }
+    else if (state.pledged) { sendLabel = T.send.ready; }
 
     const texts = {
-      moQuote: last(QUOTES, state.pokes),
+      moQuote: last(T.quotes, state.pokes),
       patienceLabel: `${patience} / ${MAX_PATIENCE}`,
-      pokeLabel: dead ? 'Say sorry & revive Mo' : 'Poke the pigeon',
-      heardSays: TRANSLATIONS[state.phrase][0],
-      heardMeans: TRANSLATIONS[state.phrase][1],
-      moodCaption: MOOD_CAPTIONS[state.mood],
+      pokeLabel: dead ? T.revive : T.poke,
+      heardSays: T.translations[state.phrase][0],
+      heardMeans: T.translations[state.phrase][1],
+      moodCaption: T.moodCaptions[state.mood],
       sendLabel,
       formError: state.formError,
-      status: last(REVIVE_LINES, state.reviveTries)
+      status: last(T.reviveLines, state.reviveTries)
     };
 
     // data-value is always a string, so compare as strings
@@ -196,10 +247,10 @@
         state.pledged = false;
         state.type = null;
       } else {
-        state.formError = FORM_ERRORS[response.status] || FORM_ERRORS.other;
+        state.formError = T.formErrors[response.status] || T.formErrors.other;
       }
     } catch (networkError) {
-      state.formError = FORM_ERRORS.other;
+      state.formError = T.formErrors.other;
     }
 
     state.sending = false;
@@ -219,7 +270,7 @@
 
   // Translator on small screens: a native select that shares state.phrase with the buttons.
   if (phraseSelect) {
-    TRANSLATIONS.forEach(([says], i) => {
+    T.translations.forEach(([says], i) => {
       phraseSelect.add(new Option(says, String(i)));
     });
     phraseSelect.addEventListener('change', () => {
@@ -232,7 +283,7 @@
   if (navToggle && navLinks) {
     const setMenu = (open) => {
       navToggle.setAttribute('aria-expanded', String(open));
-      navToggle.textContent = open ? 'Close −' : 'Menu +';
+      navToggle.textContent = open ? T.menu.open : T.menu.closed;
     };
     const isOpen = () => navToggle.getAttribute('aria-expanded') === 'true';
 
