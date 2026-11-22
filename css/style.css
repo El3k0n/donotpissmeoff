@@ -280,12 +280,16 @@ textarea:focus {
   gap: 28px;
 }
 .hero__badge {
-  align-self: flex-start;
+  display: block;
+  width: fit-content;
+  margin-bottom: 28px;
   padding: 8px 14px;
   background: var(--black);
   color: var(--lime);
+  font-family: var(--font-body);
   font-size: 15px;
   font-weight: 800;
+  line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -899,7 +903,7 @@ textarea:focus {
 
   .hero > .wrap { padding-block: 36px 52px; }
   .hero__copy { gap: 20px; }
-  .hero__badge { font-size: 12px; line-height: 1.5; letter-spacing: 0.6px; }
+  .hero__badge { margin-bottom: 20px; font-size: 12px; line-height: 1.5; letter-spacing: 0.6px; }
   .hero__title { font-size: clamp(64px, 16vw, 108px); }
   .hero__lede,
   .meet__intro,
