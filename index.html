@@ -24,7 +24,7 @@
 
 <link rel="preload" href="assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/work-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -65,13 +65,13 @@
       <div class="pigeon-stage">
         <div class="pigeon-stage__blob" aria-hidden="true"></div>
         <div class="contents" data-if="moCalm">
-          <img class="pigeon-stage__mo" data-mo="laptop" src="assets/pigeon-laptop-hd.png" alt="Mo the pigeon at his laptop, already over it">
+          <img class="pigeon-stage__mo" data-mo="laptop" src="assets/pigeon-laptop-hd.png?v=2" alt="Mo the pigeon at his laptop, already over it" width="1254" height="1254" fetchpriority="high">
         </div>
         <div class="contents" data-if="moAngry" hidden>
-          <img class="pigeon-stage__mo pigeon-stage__mo--angry" data-mo="annoyed" src="assets/pigeon-annoyed-hd.png" alt="Mo the pigeon, visibly annoyed">
+          <img class="pigeon-stage__mo pigeon-stage__mo--angry" data-mo="annoyed" src="assets/pigeon-annoyed-hd.png?v=2" alt="Mo the pigeon, visibly annoyed" width="1254" height="1254">
         </div>
         <div class="contents" data-if="moDead" hidden>
-          <img class="pigeon-stage__mo pigeon-stage__mo--dead" src="assets/pigeon-dead-hd.png" alt="Mo the pigeon, flat on the ground">
+          <img class="pigeon-stage__mo pigeon-stage__mo--dead" src="assets/pigeon-dead-hd.png?v=2" alt="Mo the pigeon, flat on the ground" width="2170" height="725" loading="lazy">
         </div>
         <p class="pigeon-stage__quote" aria-live="polite" data-text="moQuote">Yes, I am working.</p>
       </div>
@@ -117,7 +117,7 @@
     </div>
     <div class="work-grid">
       <a class="work-card" href="https://ravingroom.com" data-if="showEcom">
-        <img class="work-card__shot" src="assets/work-raving-room.jpg" alt="Raving Room storefront with the custom theme" width="1600" height="900" loading="lazy">
+        <img class="work-card__shot" src="assets/work-raving-room.webp" alt="Raving Room storefront with the custom theme" width="1236" height="704" loading="lazy">
         <div class="work-card__body">
           <p class="work-card__kind">E-commerce — Shopify</p>
           <h3 class="work-card__name">Raving Room</h3>
@@ -126,7 +126,7 @@
         </div>
       </a>
       <a class="work-card" href="https://blinkwearable.com" data-if="showEcom">
-        <img class="work-card__shot" src="assets/work-blink.jpg?v=2" alt="Blink storefront: a fingertip on the black payment bracelet, under the headline Play;seamless" width="1600" height="900" loading="lazy">
+        <img class="work-card__shot" src="assets/work-blink.webp" alt="Blink storefront: a fingertip on the black payment bracelet, under the headline Play;seamless" width="1236" height="695" loading="lazy">
         <div class="work-card__body">
           <p class="work-card__kind">E-commerce — NFC payment wearable</p>
           <h3 class="work-card__name">Blink</h3>
@@ -135,7 +135,7 @@
         </div>
       </a>
       <a class="work-card" href="/dilemma/" data-if="showApps">
-        <img class="work-card__shot" src="assets/work-stool-pigeon.jpg" alt="Stool Pigeon: a grid of pigeons where cooperators and defectors spread in a kaleidoscope pattern" width="1600" height="900" loading="lazy">
+        <img class="work-card__shot" src="assets/work-stool-pigeon.webp" alt="Stool Pigeon: a grid of pigeons where cooperators and defectors spread in a kaleidoscope pattern" width="1236" height="695" loading="lazy">
         <div class="work-card__body">
           <p class="work-card__kind">Web app — side project</p>
           <h3 class="work-card__name">Stool Pigeon</h3>
@@ -144,7 +144,7 @@
         </div>
       </a>
       <a class="work-card" href="https://github.com/El3k0n/gameoflife" data-if="showApps">
-        <img class="work-card__shot" src="assets/work-genesis.jpg" alt="Genesis on a Mac: a symmetric Day &amp; Night pattern in pink and green, the pattern library on the left and the rule editor on the right" width="1600" height="900" loading="lazy">
+        <img class="work-card__shot" src="assets/work-genesis.webp" alt="Genesis on a Mac: a symmetric Day &amp; Night pattern in pink and green, the pattern library on the left and the rule editor on the right" width="1236" height="695" loading="lazy">
         <div class="work-card__body">
           <p class="work-card__kind">macOS app — side project</p>
           <h3 class="work-card__name">Genesis</h3>
@@ -215,7 +215,7 @@
           <p class="translation__means" data-text="heardMeans">I have not looked at anything else.</p>
         </div>
         <div class="translation__foot">
-          <img class="invert" src="assets/pigeon-annoyed-hd.png" alt="">
+          <img class="invert" src="assets/pigeon-annoyed-hd.png?v=2" alt="" width="1254" height="1254" loading="lazy">
           <p>Mo has heard all of these. Twice this week.</p>
         </div>
       </div>
@@ -255,7 +255,7 @@
         <li>"Quick" free tests to see if we're a fit.</li>
         <li>Revision fourteen.</li>
       </ul>
-      <img class="nope__mo invert" data-mo="fly" src="assets/pigeon-fly-hd.png" alt="Mo flying off with the laptop under his wing">
+      <img class="nope__mo invert" data-mo="fly" src="assets/pigeon-fly-hd.png?v=2" alt="Mo flying off with the laptop under his wing" width="2142" height="734">
     </aside>
   </div>
 </section>
@@ -295,25 +295,25 @@
     </div>
     <ol class="steps">
       <li class="step bg-white">
-        <div class="step__art"><img src="assets/pigeon-laptop-hd.png" alt=""></div>
+        <div class="step__art"><img src="assets/pigeon-laptop-hd.png?v=2" alt="" width="1254" height="1254" loading="lazy"></div>
         <p class="eyebrow">Step 1</p>
         <h3 class="step__title">Brief</h3>
         <p class="step__text">You write down what you need. I ask the questions you didn't think of. We agree on price and date.</p>
       </li>
       <li class="step bg-lime">
-        <div class="step__art step__art--wide"><img src="assets/pigeon-fly-hd.png" alt=""></div>
+        <div class="step__art step__art--wide"><img src="assets/pigeon-fly-hd.png?v=2" alt="" width="2142" height="734" loading="lazy"></div>
         <p class="eyebrow">Step 2</p>
         <h3 class="step__title">Build</h3>
         <p class="step__text">I disappear and build it. You get a link to watch it take shape. No status calls.</p>
       </li>
       <li class="step bg-pink">
-        <div class="step__art"><img src="assets/pigeon-annoyed-hd.png" alt=""></div>
+        <div class="step__art"><img src="assets/pigeon-annoyed-hd.png?v=2" alt="" width="1254" height="1254" loading="lazy"></div>
         <p class="eyebrow">Step 3</p>
         <h3 class="step__title">Fixes</h3>
         <p class="step__text">You send everything you want changed, in one list. I fix it. Mo watches.</p>
       </li>
       <li class="step bg-white">
-        <div class="step__art"><img src="assets/pigeon-sign-hd.png" alt="Mo holding a sign that says: Done. Now leave."></div>
+        <div class="step__art"><img src="assets/pigeon-sign-hd.png?v=2" alt="Mo holding a sign that says: Done. Now leave." width="1512" height="1040" loading="lazy"></div>
         <p class="eyebrow">Step 4</p>
         <h3 class="step__title">Launch</h3>
         <p class="step__text">It goes live. You get the keys and a short guide. Done. Now leave.</p>
@@ -340,16 +340,16 @@
       <figure class="mood-card bg-white" aria-live="polite">
         <div class="mood-card__art">
           <div class="contents" data-if="mood0">
-            <img class="mood-card__mo" data-mo="laptop" src="assets/pigeon-laptop-hd.png" alt="Mo calmly working at his laptop">
+            <img class="mood-card__mo" data-mo="laptop" src="assets/pigeon-laptop-hd.png?v=2" alt="Mo calmly working at his laptop">
           </div>
           <div class="contents" data-if="mood1" hidden>
-            <img class="mood-card__mo mood-card__mo--fly" data-mo="fly" src="assets/pigeon-fly-hd.png" alt="Mo flying at full speed with the laptop">
+            <img class="mood-card__mo mood-card__mo--fly" data-mo="fly" src="assets/pigeon-fly-hd.png?v=2" alt="Mo flying at full speed with the laptop">
           </div>
           <div class="contents" data-if="mood2" hidden>
-            <img class="mood-card__mo mood-card__mo--dead" src="assets/pigeon-dead-hd.png" alt="Mo collapsed on the floor">
+            <img class="mood-card__mo mood-card__mo--dead" src="assets/pigeon-dead-hd.png?v=2" alt="Mo collapsed on the floor" loading="lazy">
           </div>
           <div class="contents" data-if="mood3" hidden>
-            <img class="mood-card__mo mood-card__mo--sign" data-mo="sign" src="assets/pigeon-sign-hd.png" alt="Mo holding a sign that says: Done. Now leave.">
+            <img class="mood-card__mo mood-card__mo--sign" data-mo="sign" src="assets/pigeon-sign-hd.png?v=2" alt="Mo holding a sign that says: Done. Now leave.">
           </div>
         </div>
         <figcaption class="mood-card__caption" data-text="moodCaption">Fine. This he can work with.</figcaption>
@@ -448,13 +448,13 @@
         <p class="form__error" role="alert" data-if="formError" data-text="formError" hidden></p>
         <div class="form__actions">
           <button type="submit" class="btn btn--white btn--shadow btn--tall form__send" id="send-btn" data-text="sendLabel" disabled>Swear first.</button>
-          <img src="assets/pigeon-annoyed-hd.png" alt="">
+          <img src="assets/pigeon-annoyed-hd.png?v=2" alt="" width="1254" height="1254" loading="lazy">
         </div>
         <p class="form__privacy">I use what you write here to reply to you. That's it. Details in the <a href="/privacy">privacy notice</a>.</p>
       </form>
 
       <div class="sent" role="status" data-if="sent" hidden>
-        <img class="sent__mo" data-mo="fly" src="assets/pigeon-fly-hd.png" alt="Mo flying off with your message">
+        <img class="sent__mo" data-mo="fly" src="assets/pigeon-fly-hd.png?v=2" alt="Mo flying off with your message" width="2142" height="734">
         <h3 class="sent__title">Sent. Mo's on it.</h3>
         <p class="sent__text">You'll hear back soon. Please don't send a follow-up asking if I got it. I got it.</p>
         <button type="button" class="btn btn--dark btn--small btn--plain" data-action="reset">Send another (really?)</button>
@@ -475,7 +475,7 @@
       <!-- Leads to the 404 page on purpose. -->
       <a class="text-pink" href="/do-not-click" rel="nofollow">Do not click</a>
     </nav>
-    <img class="site-footer__mo invert" src="assets/pigeon-sign-hd.png" alt="">
+    <img class="site-footer__mo invert" src="assets/pigeon-sign-hd.png?v=2" alt="" width="1512" height="1040" loading="lazy">
   </div>
 </footer>
 

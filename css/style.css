@@ -525,7 +525,7 @@ textarea:focus {
   border: 1.5px solid var(--black);   /* doubles up with its neighbours to 3px */
 }
 .step__art { display: flex; align-items: center; height: 130px; }
-.step__art img { width: auto; max-width: 100%; max-height: 130px; }
+.step__art img { width: auto; height: auto; max-width: 100%; max-height: 130px; }
 .step__art--wide img { max-height: 110px; }
 .step__title { font-size: 32px; line-height: 1; }
 .step__text { font-size: 16px; line-height: 1.5; }
